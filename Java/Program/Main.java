@@ -49,7 +49,7 @@ public class Main {
             scanner.nextLine();
         }
 
-
+        System.out.println("Terima kasih telah menggunakan program ini!");
         scanner.close();
     }
 
