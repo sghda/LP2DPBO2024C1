@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Product> products = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        int more_input = 1;
 
         // menambahkan data produk
         products.add(new Shirt("Kemeja", "Gucci", 500000, "M", "Katun", "Pria", "Putih", "Pendek"));
@@ -15,32 +16,39 @@ public class Main {
         displayProducts(products);
 
         // Menambahkan data baru dari input user
-        System.out.println("\nTambah Data Produk Baru dengan id " + (products.size() + 1));
-        System.out.print("Nama: ");
-        String name = scanner.nextLine();
-        System.out.print("Merek: ");
-        String brand = scanner.nextLine();
-        System.out.print("Harga: ");
-        int price = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Ukuran: ");
-        String size = scanner.nextLine();
-        System.out.print("Bahan: ");
-        String material = scanner.nextLine();
-        System.out.print("Gender: ");
-        String gender = scanner.nextLine();
-        System.out.print("Warna: ");
-        String color = scanner.nextLine();
-        System.out.print("Tipe Lengan: ");
-        String sleeveType = scanner.nextLine();
+        while (more_input == 1) {
+            System.out.println("\nTambah Data Produk Baru dengan id " + (products.size() + 1));
+            System.out.print("Nama: ");
+            String name = scanner.nextLine();
+            System.out.print("Merek: ");
+            String brand = scanner.nextLine();
+            System.out.print("Harga: ");
+            int price = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Ukuran: ");
+            String size = scanner.nextLine();
+            System.out.print("Bahan: ");
+            String material = scanner.nextLine();
+            System.out.print("Gender: ");
+            String gender = scanner.nextLine();
+            System.out.print("Warna: ");
+            String color = scanner.nextLine();
+            System.out.print("Tipe Lengan: ");
+            String sleeveType = scanner.nextLine();
 
-        // Membuat objek baru dan menambahkannya ke daftar produk
-        Shirt newShirt = new Shirt(name, brand, price, size, material, gender, color, sleeveType);
-        products.add(newShirt);
+            // Membuat objek baru dan menambahkannya ke daftar produk
+            Shirt newShirt = new Shirt(name, brand, price, size, material, gender, color, sleeveType);
+            products.add(newShirt);
 
-        // Menampilkan data setelah penambahan
-        System.out.println("\nDaftar Produk Setelah Penambahan:");
-        displayProducts(products);
+            // Menampilkan data setelah penambahan
+            System.out.println("\nDaftar Produk Setelah Penambahan:");
+            displayProducts(products);
+
+            System.out.println("\nApakah Anda ingin menambahkan data produk lagi? (1 = Ya, 0 = Tidak)");
+            more_input = scanner.nextInt();
+            scanner.nextLine();
+        }
+
 
         scanner.close();
     }
